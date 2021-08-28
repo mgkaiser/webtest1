@@ -24,7 +24,7 @@ jobs:
     - name: Export Artifacts
       uses: actions/upload-artifact@v2
       with:	
-        name: 'Code Coverage'
-        path: '$DOTNET_ROOT/BuildReports/Coverage/*'
+        name: Code Coverage
+        path: $DOTNET_ROOT/BuildReports/Coverage/*
     
 
