@@ -23,7 +23,9 @@ jobs:
         reportgenerator -reports:$DOTNET_ROOT/BuildReports/Coverage/coverage.cobertura.xml -targetdir:$DOTNET_ROOT/BuildReports/Coverage -reporttypes:"HTML;HTMLSummary"   
     - name: Export Artifacts
       uses: actions/upload-artifact@v2
-      with:	
+      env:
+        DOTNET_ROOT: /home/runner/.dotnet
+      with:	      
         name: Code Coverage
         path: $DOTNET_ROOT/BuildReports/Coverage/*
     
