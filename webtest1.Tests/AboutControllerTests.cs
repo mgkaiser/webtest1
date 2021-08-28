@@ -61,14 +61,7 @@ namespace webtest1.Tests
             aboutViewModel.CurrentEnvironment.Should().BeEquivalentTo(testEnvironment);
             aboutViewModel.Version.Should().BeEquivalentTo(versionTest);                        
         }
-
-        [Fact]
-        public async Task BogusTest()
-        {
-            int i = 1;
-            i.Should().Be(2);
-        }
-
+        
         [Fact]
         public async Task AboutController_About_Success()
         {
