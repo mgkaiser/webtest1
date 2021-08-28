@@ -63,6 +63,13 @@ namespace webtest1.Tests
         }
 
         [Fact]
+        public async Task BogusTest()
+        {
+            int i = 1;
+            i.Should().Be(2);
+        }
+
+        [Fact]
         public async Task AboutController_About_Success()
         {
             const string resultString = "1234"; 
