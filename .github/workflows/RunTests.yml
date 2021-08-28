@@ -1,17 +1,7 @@
 name: Run Tests
 on:
-  workflow_dispatch:
-    inputs:
-      name:        
-        description: 'Person to greet'        
-        default: 'World'        
-        required: true
-jobs:  
-  greet:    
-    runs-on: ubuntu-latest    
-    steps:    
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
+  workflow_dispatch:    
+jobs:    
   build:
     runs-on: ubuntu-latest    
     steps:
@@ -24,7 +14,12 @@ jobs:
     - name: Build with dotnet
       run: |
         dotnet build webtest1/webtest1.csproj 
-        dotnet build webtest1.Tests/webtest1.Tests.csproj
-        dotnet test
+        dotnet build webtest1.Tests/webtest1.Tests.csproj        
+    - name: Install report generator
+      run: dotnet tool install dotnet-reportgenerator-globaltool --version 4.8.7 --tool-path /tools
+    - name: Build with dotnet
+      run: |
+        dotnet test /p:CollectCoverage=true /p:CoverletOutput=BuildReports/Coverage/ /p:CoverletOutputFormat=cobertura 
+        reportgenerator -reports:BuildReports/Coverage/coverage.cobertura.xml -targetdir:BuildReports/Coverage -reporttypes:"HTML;HTMLSummary"
     
 
