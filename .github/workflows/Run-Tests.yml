@@ -1,11 +1,7 @@
-name: Build and Test .NET 5 CI
-
-on:
-  workflow_dispatch:
-
+name: Run Tests
+on: workflow_dispatch
 jobs:
   build:
-
     runs-on: ubuntu-latest    
     steps:
     - name: Check out code
