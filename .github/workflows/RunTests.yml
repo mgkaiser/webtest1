@@ -19,7 +19,7 @@ jobs:
       run: dotnet tool install dotnet-reportgenerator-globaltool --version 4.8.12 --tool-path $DOTNET_ROOT/tools
     - name: Build with dotnet
       run: |
-        dotnet test /p:CollectCoverage=true /p:CoverletOutput=BuildReports/Coverage/ /p:CoverletOutputFormat=cobertura 
-        reportgenerator -reports:BuildReports/Coverage/coverage.cobertura.xml -targetdir:BuildReports/Coverage -reporttypes:"HTML;HTMLSummary"
+        dotnet test /p:CollectCoverage=true /p:CoverletOutput=$DOTNET_ROOT/BuildReports/Coverage/ /p:CoverletOutputFormat=cobertura 
+        reportgenerator -reports:$DOTNET_ROOT/BuildReports/Coverage/coverage.cobertura.xml -targetdir:$DOTNET_ROOT/BuildReports/Coverage -reporttypes:"HTML;HTMLSummary"
     
 
