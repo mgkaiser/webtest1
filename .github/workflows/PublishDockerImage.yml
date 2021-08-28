@@ -36,32 +36,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TAGS: ${{ github.run_number }}
           API_TOKEN: ${{ secrets.API_TOKEN }}
-        run: |
-          echo "Step 1"
-          git clone https://mkaiserincomm:$GITHUB_TOKEN@github.com/mkaiserincomm/webtest1-helm
-          echo "Step 2"
-          git config --global user.email "mkaiser@incomm.com"
-          echo "Step 3"
-          git config --global user.name "Michael Kaiser"
-          echo "Step 4"
-          cd webtest1-helm
-          echo "Step 4.5"
-          git checkout kaiserhomelab
-          echo "Step 5"
-          cat ./values.yaml | sed 's/tag: \"latest\"/tag: \"Build-'$GITHUB_TAGS'\"/' > ./charts/webtest1/values.yaml          
-          echo "Step 6"
-          git add ./charts/webtest1/values.yaml
-          echo "Step 7"
-          git commit -m "Updated build number"
-          echo "Step 8"
-          git push --set-upstream https://mkaiserincomm:$API_TOKEN@github.com/mkaiserincomm/webtest1-helm
-          echo "Step 9"
-          git checkout sigcntnr
-          echo "Step 10"
-          cat ./values.yaml | sed 's/tag: \"latest\"/tag: \"Build-'$GITHUB_TAGS'\"/' > ./charts/webtest1/values.yaml          
-          echo "Step 11"
-          git add ./charts/webtest1/values.yaml
-          echo "Step 12"
-          git commit -m "Updated build number"
-          echo "Step 13"
-          git push --set-upstream https://mkaiserincomm:$API_TOKEN@github.com/mkaiserincomm/webtest1-helm
+        run: |          
+          git clone https://mgkaiser:$GITHUB_TOKEN@github.com/mgkaiser/webtest1-helm          
+          git config --global user.email "mgkaiser@hotmail.com"          
+          git config --global user.name "Michael Kaiser"          
+          cd webtest1-helm          
+          git checkout kaiserhomelab          
+          cat ./values.yaml | sed 's/tag: \"latest\"/tag: \"Build-'$GITHUB_TAGS'\"/' > ./charts/webtest1/values.yaml                    
+          git add ./charts/webtest1/values.yaml          
+          git commit -m "Updated build number"          
+          git push --set-upstream https://mgkaiser:$API_TOKEN@github.com/mgkaiser/webtest1-helm                    
