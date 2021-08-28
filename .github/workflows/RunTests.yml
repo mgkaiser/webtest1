@@ -22,11 +22,9 @@ jobs:
         dotnet test /p:CollectCoverage=true /p:CoverletOutput=$DOTNET_ROOT/BuildReports/Coverage/ /p:CoverletOutputFormat=cobertura 
         reportgenerator -reports:$DOTNET_ROOT/BuildReports/Coverage/coverage.cobertura.xml -targetdir:$DOTNET_ROOT/BuildReports/Coverage -reporttypes:"HTML;HTMLSummary"   
     - name: Export Artifacts
-      uses: actions/upload-artifact@v2
-      env:
-        DOTNET_ROOT: /home/runner/.dotnet
+      uses: actions/upload-artifact@v2      
       with:	      
         name: Code Coverage
-        path: $DOTNET_ROOT/BuildReports/Coverage/*
+        path: /home/runner/.dotnet/BuildReports/Coverage/*
     
 
