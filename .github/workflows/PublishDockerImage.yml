@@ -16,8 +16,8 @@ jobs:
         dotnet-version: 5.0.103
       - name: Build with dotnet
         run: |
-        dotnet build webtest1/webtest1.csproj 
-        dotnet build webtest1.Tests/webtest1.Tests.csproj        
+          dotnet build webtest1/webtest1.csproj 
+          dotnet build webtest1.Tests/webtest1.Tests.csproj        
       - name: Install report generator
         run: dotnet tool install dotnet-reportgenerator-globaltool --version 4.8.12 --tool-path $DOTNET_ROOT/tools
       - name: Run Tests
